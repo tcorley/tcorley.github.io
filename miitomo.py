@@ -19,8 +19,8 @@ def main():
                     emotion_dict[e] += [line.split(' ')[0][:-2].replace('_', ' ')]
                 emotions += 1
         # print(emotion_dict['Clown'])
-        html_content(emotion_dict)
-        # html_tabs(emotion_dict)
+        # html_content(emotion_dict)
+        html_tabs(emotion_dict)
         # print('There are {} words associated with emotions'.format(emotions))
         # print('Here are the emotions and the number of times each is referenced: ')
         # print(tabulate({'emotes': emotion_dict.keys(), 'occurences': emotion_dict.values()}, tablefmt='grid'))
@@ -30,7 +30,7 @@ def main():
 def html_tabs(data):
     html = '<ul class="nav nav-tabs" role="tablist">'
     for key in sorted(data.keys()):
-        html += '<li role="presentation"><a href="#{}" aria-controls="{}" role="tab" data-toggle="tab">{}</a></li>'.format(key.lower(), key.lower(), key)
+        html += '<li role="presentation"><a href="#{}" aria-controls="{}" role="tab" data-toggle="tab">{} ({})</a></li>'.format(key.lower(), key.lower(), key, len(data[key]))
     html += '</ul>'
     print(html)
 

@@ -120,7 +120,7 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane fade flex active" id="affected"></div>
+        <div role="tabpanel" class="tab-pane fade in flex active" id="affected"></div>
         <div role="tabpanel" class="tab-pane fade flex" id="anger"></div>
         <div role="tabpanel" class="tab-pane fade flex" id="banzai"></div>
         <div role="tabpanel" class="tab-pane fade flex" id="busy"></div>
@@ -195,6 +195,7 @@
             e.preventDefault();
             $.ajax({
                 url: "./" + this.parentElement.textContent.toLowerCase() + ".json",
+                context: this,
                 success: function(data) {
                   var html = '';
                   $.each(data, function(index, value){ html += '<div class="word">' + value + '</div>'});

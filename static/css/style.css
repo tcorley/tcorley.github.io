@@ -1,0 +1,14 @@
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+.word {
+    display: inline-block;
+    background-color: aquamarine;
+    padding: 0 12px;
+    border-radius: 18px;
+    font-size: 23px;
+    font-family: 'Helvetica Neue';
+    font-weight: 200;
+    margin: 6px 0;
+}

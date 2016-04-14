@@ -167,7 +167,7 @@
             }
         });
 
-        $('.nav-tabs a').on('click', function(e) {
+        $('.nav-pills a').on('click', function(e) {
             e.preventDefault();
             $.ajax({
                 url: "./" + this.parentElement.textContent.toLowerCase() + ".json",

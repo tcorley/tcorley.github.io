@@ -170,7 +170,7 @@
         $('.nav-pills a').on('click', function(e) {
             e.preventDefault();
             $.ajax({
-                url: "./" + this.parentElement.textContent.toLowerCase() + ".json",
+                url: "./" + this.parentElement.id + ".json",
                 context: this,
                 success: function(data) {
                     var html = '<div class="flex">';
@@ -178,7 +178,7 @@
                         html += '<div class="word" style="background-color:' + randColor() + '">' + value + '</div>'
                     });
                     html += '</div>';
-                    $('#' + this.parentElement.textContent.toLowerCase()).html(html);
+                    $('#' + this.parentElement.id).html(html);
                     $(this).tab('show');
                 }
             });

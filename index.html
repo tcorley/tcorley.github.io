@@ -149,12 +149,16 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script>
+        var colors = ['#F44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#00838F','#009688','#43A047','#689F38','#EF6C00','#FF5722','#607D8B'];
+        function randColor() {
+          return colors[Math.floor(Math.random()*colors.length)];
+        }
         $.ajax({
             url: "./affected.json",
             success: function(data) {
                 var html = '';
                 $.each(data, function(index, value) {
-                    html += '<div class="word">' + value + '</div>'
+                    html += '<div class="word" style="background-color:'+ randColor() + '">' + value + '</div>'
                 });
                 $('#affected').html(html);
             }
@@ -168,7 +172,7 @@
                 success: function(data) {
                     var html = '';
                     $.each(data, function(index, value) {
-                        html += '<div class="word">' + value + '</div>'
+                        html += '<div class="word" style="background-color:'+ randColor() + '">' + value + '</div>'
                     });
                     $('#' + this.parentElement.textContent.toLowerCase()).html(html);
                 }

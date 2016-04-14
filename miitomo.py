@@ -1,6 +1,7 @@
 #import the list
 from sys import argv
 from tabulate import tabulate
+import json
 
 def main():
     print('Hello')
@@ -18,8 +19,8 @@ def main():
                     emotion_dict[e] += [line.split(' ')[0][:-2].replace('_', ' ')]
                 emotions += 1
         # print(emotion_dict['Clown'])
-        # html_content(emotion_dict)
-        html_tabs(emotion_dict)
+        html_content(emotion_dict)
+        # html_tabs(emotion_dict)
         # print('There are {} words associated with emotions'.format(emotions))
         # print('Here are the emotions and the number of times each is referenced: ')
         # print(tabulate({'emotes': emotion_dict.keys(), 'occurences': emotion_dict.values()}, tablefmt='grid'))
@@ -36,13 +37,15 @@ def html_tabs(data):
 def html_content(data):
     html = '<div class="tab-content">'
     for key in sorted(data.keys()):
-        html += '<div role="tabpanel" class="tab-pane fade flex" id="{}">'.format(key.lower())
-        for word in sorted(data[key]):
-            html += '<div class="word">{}</div>'.format(word)
-        html += '</div>'
-        with open('{}.html'.format(key.lower()), 'w') as f:
-            f.write(html)
-    html += '</div></div>'
+        html += '<div role="tabpanel" class="tab-pane fade flex" id="{}"></div>'.format(key.lower())
+        html_words(key, data)
+    html += '</div>'
+    print(html)
+
+def html_words(key, data):
+    with open('{}.json'.format(key.lower()), 'w') as f:
+        f.write(json.dumps(sorted(data[key])))
+
 
 if __name__ == '__main__':
     main()

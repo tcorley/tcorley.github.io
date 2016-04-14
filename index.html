@@ -186,7 +186,7 @@
           url: "./affected.json",
           success: function(data) {
             var html = '';
-            $.each(d, function(index, value){ html += '<div class="word">' + value + '</div>'});
+            $.each(data, function(index, value){ html += '<div class="word">' + value + '</div>'});
             $('#affected').html(html);
           }
         });

@@ -1,7 +1,8 @@
 .flex {
-    display: flex;
+    display: flex !important; /* I'm SO sorry */
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 .word {
     display: inline-block;

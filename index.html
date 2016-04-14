@@ -194,9 +194,9 @@
         $('.nav-tabs a').on('click', function(e) {
             e.preventDefault();
             $.ajax({
-                var html = '';
                 url: "./" + this.parentElement.textContent.toLowerCase() + ".json",
                 success: function(data) {
+                  var html = '';
                   $.each(data, function(index, value){ html += '<div class="word">' + value + '</div>'});
                   $('#' + this.parentElement.textContent.toLowerCase()).html(html);
                 }

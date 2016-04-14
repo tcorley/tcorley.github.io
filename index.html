@@ -154,17 +154,6 @@
         function randColor() {
             return colors[Math.floor(Math.random() * colors.length)];
         }
-        function copyToClipboard(element) {
-          var $temp = $("<input>")
-          $("body").append($temp);
-          $temp.val($(element).text()).select();
-          document.execCommand("copy");
-          $temp.remove();
-        }
-
-        function reinstateClick() {
-          $('.word').on('click', function(){copyToClipboard(this)});
-        }
 
         $.ajax({
             url: "./affected.json",
@@ -174,7 +163,6 @@
                     html += '<div class="word" style="background-color:' + randColor() + '">' + value + '</div>'
                 });
                 $('#affected').html(html);
-                reinstateClick();
             }
         });
 
@@ -189,7 +177,6 @@
                         html += '<div class="word" style="background-color:' + randColor() + '">' + value + '</div>'
                     });
                     $('#' + this.parentElement.textContent.toLowerCase()).html(html);
-                    reinstateClick();
                     $(this).tab('show');
                 }
             });

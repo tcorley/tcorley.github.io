@@ -163,9 +163,9 @@
         }
 
         function reinstateClick() {
-          console.log('here');
           $('.word').on('click', function(){copyToClipboard(this)});
         }
+
         $.ajax({
             url: "./affected.json",
             success: function(data) {
@@ -190,9 +190,9 @@
                     });
                     $('#' + this.parentElement.textContent.toLowerCase()).html(html);
                     reinstateClick();
+                    $(this).tab('show');
                 }
             });
-            $(this).tab('show');
         });
 
     </script>

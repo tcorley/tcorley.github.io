@@ -154,6 +154,18 @@
         function randColor() {
             return colors[Math.floor(Math.random() * colors.length)];
         }
+        function copyToClipboard(element) {
+          var $temp = $("<input>")
+          $("body").append($temp);
+          $temp.val($(element).text()).select();
+          document.execCommand("copy");
+          $temp.remove();
+        }
+
+        function reinstateClick() {
+          console.log('here');
+          $('.word').on('click', function(){copyToClipboard(this)});
+        }
         $.ajax({
             url: "./affected.json",
             success: function(data) {
@@ -183,18 +195,6 @@
             $(this).tab('show');
         });
 
-        function copyToClipboard(element) {
-            var $temp = $("<input>")
-            $("body").append($temp);
-            $temp.val($(element).text()).select();
-            document.execCommand("copy");
-            $temp.remove();
-        }
-
-        function reinstateClick() {
-          console.log('here');
-          $('.word').on('click', function(){copyToClipboard(this)});
-        }
     </script>
 </body>
 

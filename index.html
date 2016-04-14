@@ -162,6 +162,7 @@
                     html += '<div class="word" style="background-color:' + randColor() + '">' + value + '</div>'
                 });
                 $('#affected').html(html);
+                reinstateClick();
             }
         });
 
@@ -176,6 +177,7 @@
                         html += '<div class="word" style="background-color:' + randColor() + '">' + value + '</div>'
                     });
                     $('#' + this.parentElement.textContent.toLowerCase()).html(html);
+                    reinstateClick();
                 }
             });
             $(this).tab('show');
@@ -189,7 +191,9 @@
             $temp.remove();
         }
 
-        $('.word').on('click', function(){copyToClipboard(this)});
+        function reinstateClick() {
+          $('.word').on('click', function(){copyToClipboard(this)});
+        }
     </script>
 </body>
 

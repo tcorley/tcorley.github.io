@@ -156,7 +156,7 @@
         }
 
         $.ajax({
-            url: "./affected.json",
+            url: "./static/words/affected.json",
             success: function(data) {
                 var html = '<div class="flex">';
                 $.each(data, function(index, value) {
@@ -170,7 +170,7 @@
         $('.nav-pills a').on('click', function(e) {
             e.preventDefault();
             $.ajax({
-                url: "./" + $(this).attr('aria-controls') + ".json",
+                url: "./static/words/" + $(this).attr('aria-controls') + ".json",
                 context: this,
                 success: function(data) {
                     var html = '<div class="flex">';
